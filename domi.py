@@ -10,13 +10,16 @@ def f(r):
     return result
 
 def Slice(st,ag1,ag2):
-    k = st.split("+")
+    k = st
+    if "+" in st:
+        k = st.split("+")
+    else:
+        k = st.split("-")
     n = f(ag1)/(f(ag1-ag2)*f(ag2))
     k1 = k[0]
     k2 = k[1]
 
     ao = (int(k1[0])**ag2)*(int(k2[0])**(ag1-ag2))*n
-
     toprint = str(ao)+k1[-1]+"^"+str(ag2)+k2[-1]+"^"+str(ag1-ag2)
     return toprint
 
@@ -30,3 +33,7 @@ while m<=b:
     m = m+1
 
 print(A)
+
+index = int(input("index ? : "))
+
+print(A[index])
